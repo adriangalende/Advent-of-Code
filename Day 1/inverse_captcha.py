@@ -40,8 +40,16 @@ def resolverCaptcha(numero):
 #123123 produces 12.
 #12131415 produces 4.
 
+
 def resolverCaptcha2Parte(numero):
-    return 0
+    sumaNumeros = 0
+    #la cantidad de "saltos" que tenemos que realizar para comparar los números
+    # dividimos entre 2 porque sabemos que todos las longitudes de listas de digitos serán par
+    saltosHastaMitad = int(len(numero)/2)
+    for indice in range(len(numero)):
+        if numero[indice] == numero[(indice+saltosHastaMitad)%len(numero)]:
+            sumaNumeros += int(numero[indice])
+    return sumaNumeros
 
 
 if __name__ == "__main__":
@@ -55,7 +63,7 @@ if __name__ == "__main__":
         assert resolverCaptcha(casoTest) == resultado, "error casotest : " + casoTest
         print("caso test: " + casoTest + " pasado")
 
-    print(resolverCaptcha(testCase))
+    #print(resolverCaptcha(testCase))
 
     #casos test basicos segunda parte
     basicTestCase = [("1212",6),("1221",0),("123425",4),("123123",12),("12131415",4)]
@@ -64,3 +72,5 @@ if __name__ == "__main__":
     for casoTest,resultado in basicTestCase:
         assert resolverCaptcha2Parte(casoTest) == resultado, "error casotest : " + casoTest
         print("caso test: " + casoTest + " pasado")
+
+    #print(resolverCaptcha2Parte(testCase))
