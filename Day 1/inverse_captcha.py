@@ -62,5 +62,5 @@ if __name__ == "__main__":
     #Resolviendo casos test segunda parte
     print(" casos test segunda parte")
     for casoTest,resultado in basicTestCase:
-        assert resolverCaptcha(casoTest) == resultado, "error casotest : " + casoTest
+        assert resolverCaptcha2Parte(casoTest) == resultado, "error casotest : " + casoTest
         print("caso test: " + casoTest + " pasado")
