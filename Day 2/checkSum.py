@@ -20,9 +20,16 @@ def checkSum(matrizCheckSum):
         sumaDigitos += max(fila) - min(fila)
     return sumaDigitos
 
+def checkSum2Parte(matrizCheckSum):
+    sumaDigitos = 0
+
+    print(int(sumaDigitos))
+    return sumaDigitos
+
 
 if __name__ == "__main__":
     import accesoDatos
+    #--------- 1 parte ---------
     #caso test ejemplo
     ruta = "./basicTest.txt"
     matrizCheckSum = accesoDatos.abrirArchivo(ruta)
@@ -31,3 +38,8 @@ if __name__ == "__main__":
     ruta = "./casoTest.txt"
     matrizCheckSum = accesoDatos.abrirArchivo(ruta)
     print(checkSum(matrizCheckSum))
+    #--------- 2 parte ---------
+    #caso test ejemplo
+    ruta = "./basicTest2Parte.txt"
+    matrizCheckSum = accesoDatos.abrirArchivo(ruta)
+    assert checkSum2Parte(matrizCheckSum) == 9, "Caso test básico 2 parte fallado"
