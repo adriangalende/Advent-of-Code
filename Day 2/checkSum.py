@@ -22,9 +22,14 @@ def checkSum(matrizCheckSum):
 
 def checkSum2Parte(matrizCheckSum):
     sumaDigitos = 0
-
-    print(int(sumaDigitos))
-    return sumaDigitos
+    for fila in matrizCheckSum:
+        for numero in range(len(fila)):
+            for numeroSiguiente in range(numero+1,len(fila)):
+                if (fila[numero] / fila[numeroSiguiente]).is_integer():
+                    sumaDigitos += (fila[numero] / fila[numeroSiguiente])
+                elif (fila[numeroSiguiente] / fila[numero]).is_integer():
+                    sumaDigitos += (fila[numeroSiguiente] / fila[numero])
+    return int(sumaDigitos)
 
 
 if __name__ == "__main__":
@@ -43,3 +48,7 @@ if __name__ == "__main__":
     ruta = "./basicTest2Parte.txt"
     matrizCheckSum = accesoDatos.abrirArchivo(ruta)
     assert checkSum2Parte(matrizCheckSum) == 9, "Caso test básico 2 parte fallado"
+    #caso test personal
+    ruta = "./casoTest.txt"
+    matrizCheckSum = accesoDatos.abrirArchivo(ruta)
+    print(checkSum2Parte(matrizCheckSum))
